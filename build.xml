@@ -1,0 +1,41 @@
+<project name="Sudoku" default="build">
+
+  <path id="build.classpath">
+    <fileset dir="lib" includes="*.jar"/>
+  </path>
+
+  <path id="run.classpath">
+    <path refid="build.classpath"/>
+    <pathelement location="target/classes"/>
+  </path>
+
+  <target name="build">
+    <mkdir dir="target/classes"/>
+    <javac srcdir="src" destdir="target/classes" source="1.5" debug="true">
+      <classpath refid="build.classpath"/>
+      <compilerarg value="-Xlint:unchecked"/>
+    </javac>
+  </target>
+
+  <target name="clean">
+    <delete dir="target"/>
+  </target>
+
+  <target name="run">
+    <java classname="gtf.puzzle.sudoku.GameRunner">
+      <classpath refid="run.classpath"/>
+      <arg value="boards/${board}"/>
+    </java>
+  </target>
+
+  <target name="junit">
+    <mkdir dir="target/junit"/>
+    <junit>
+      <classpath refid="run.classpath"/>
+      <batchtest todir="target/junit">
+        <fileset dir="target/classes" includes="**/*Test.class"/>
+      </batchtest>
+      <formatter type="plain"/>
+    </junit>
+  </target>
+</project>
