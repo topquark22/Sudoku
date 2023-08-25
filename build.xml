@@ -11,7 +11,7 @@
 
   <target name="build">
     <mkdir dir="target/classes"/>
-    <javac srcdir="src" destdir="target/classes" source="1.5" debug="true">
+    <javac srcdir="src" destdir="target/classes" source="1.6" debug="true">
       <classpath refid="build.classpath"/>
       <compilerarg value="-Xlint:unchecked"/>
     </javac>
