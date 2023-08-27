@@ -1,5 +1,6 @@
 # Sudoku
-Sudoku solver
+
+ Sudoku solver. Uses abstract theory of colourable graphs, so the code could be generalized to other graph-colouring problems. 
 
 ## build
 
